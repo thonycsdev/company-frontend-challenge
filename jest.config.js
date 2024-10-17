@@ -1,4 +1,7 @@
 const nextJest = require('next/jest');
+require('dotenv').config({
+	path: '.env'
+});
 
 /** @type {import('jest').Config} */
 const createJestConfig = nextJest({
