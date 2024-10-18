@@ -16,6 +16,7 @@ export type CompanyResponseType = {
 };
 
 export type CompanyResquestType = {
+	id?: number;
 	documento: string;
 	name: string;
 	mailList: string;
