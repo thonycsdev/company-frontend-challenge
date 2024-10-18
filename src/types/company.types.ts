@@ -14,3 +14,11 @@ export type CompanyResponseType = {
 	updatedAt: Date;
 	excluido: boolean;
 };
+
+export type CompanyResquestType = {
+	documento: string;
+	name: string;
+	mailList: string;
+	contatosTecnicos: string;
+	tecnologias: string;
+};
