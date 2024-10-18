@@ -2,7 +2,11 @@ import axios, { AxiosInstance } from 'axios';
 
 export class AxiosConfigure {
 	public instance: AxiosInstance;
+	public public_instance: AxiosInstance;
 	constructor() {
+		this.public_instance = axios.create({
+			baseURL: process.env.NEXT_PUBLIC_URL
+		});
 		this.instance = axios.create({
 			baseURL: process.env.API_URL
 		});
