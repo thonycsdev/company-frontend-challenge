@@ -1,4 +1,5 @@
 'use client';
+import { axios_configuration } from '@/configurations/axiosConfiguration';
 import { AuthTypeSignIn } from '@/types/auth.types';
 import { User } from '@/types/user.types';
 import axios from 'axios';
@@ -40,6 +41,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 payload
             );
             setUser(response.data);
+            axios_configuration.addBearerToken(response.data.jwtToken);
             localStorage.setItem(LOCAL_STORAGE_ITEM, JSON.stringify(response.data));
         } catch (error) {
             console.error('Erro ao autenticar:', error);
