@@ -18,6 +18,7 @@ export default function Home() {
 			authenticate(payload).then(() => {
 				alert('Welcome!');
 				router.push('/companies');
+				router.refresh();
 			});
 		} catch {
 			alert('Login fail');
@@ -33,7 +34,7 @@ export default function Home() {
 		setPassword(value);
 	};
 	return (
-		<div className="text-white font-bold bg-colorFullRed gap-2 flex flex-col p-5 rounded-xl">
+		<div className=" w-2/5 mx-auto mt-20 text-white font-bold bg-colorFullRed gap-2 flex flex-col p-5 rounded-xl">
 			<label>Username</label>
 			<input
 				value={username}

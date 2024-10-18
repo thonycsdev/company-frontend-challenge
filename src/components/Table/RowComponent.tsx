@@ -5,11 +5,13 @@ type RowProps = {
 	isLoading: boolean;
 	company?: CompanyResponseType;
 	onDeleteClick: (id: number) => void;
+	onEditClick: (company: CompanyResponseType) => void;
 };
 export default function RowComponent({
 	company,
 	isLoading,
-	onDeleteClick
+	onDeleteClick,
+	onEditClick
 }: RowProps) {
 	if (!company) return;
 
@@ -29,7 +31,7 @@ export default function RowComponent({
 				<input type="checkbox" readOnly checked={company.ativo} />
 			</td>
 			<td className="px-6 py-4">{company.userId}</td>
-			<td className="px-3">
+			<td onClick={() => onEditClick(company)} className="px-3">
 				<img src="./edit.svg" />
 			</td>
 			<td

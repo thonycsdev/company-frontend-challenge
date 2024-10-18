@@ -6,11 +6,13 @@ type TableProps = {
 	companies?: CompanyResponseType[];
 	onDeleteClick: (id: number) => void;
 	isLoading: boolean;
+	onEditClick: (company: CompanyResponseType) => void;
 };
 export default function TableComponent({
 	isLoading,
 	onDeleteClick,
-	companies
+	companies,
+	onEditClick
 }: TableProps) {
 	if (!companies || isLoading) {
 		return <AiOutlineLoading3Quarters className="animate-spin" />;
@@ -43,6 +45,7 @@ export default function TableComponent({
 				<tbody>
 					{companies.map((x) => (
 						<RowComponent
+							onEditClick={onEditClick}
 							key={x.code}
 							onDeleteClick={onDeleteClick}
 							isLoading={isLoading}
